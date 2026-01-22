@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gewicht Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>Gewicht Tracker</h1>
+        <p>Houd je gewicht bij en bekijk je voortgang.</p>
+      </header>
+
+      <section class="card">
+        <h2>Nieuwe meting</h2>
+        <form id="weight-form" class="form">
+          <label>
+            Datum
+            <input type="date" id="entry-date" required />
+          </label>
+          <label>
+            Gewicht (kg)
+            <input
+              type="number"
+              id="entry-weight"
+              min="0"
+              step="0.1"
+              placeholder="bijv. 72.5"
+              required
+            />
+          </label>
+          <label>
+            Notitie (optioneel)
+            <input type="text" id="entry-note" placeholder="bijv. na training" />
+          </label>
+          <button type="submit">Opslaan</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card__header">
+          <h2>Overzicht</h2>
+          <div class="actions">
+            <button id="export-btn" type="button">Exporteren</button>
+            <button id="clear-btn" type="button" class="button--ghost">Alles wissen</button>
+          </div>
+        </div>
+        <div class="stats" id="stats"></div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Datum</th>
+                <th>Gewicht</th>
+                <th>Notitie</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="entries"></tbody>
+          </table>
+        </div>
+        <p class="empty" id="empty-state">Nog geen metingen toegevoegd.</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
